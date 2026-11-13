@@ -1,120 +1,231 @@
-#  EVENTIDE OS
-
+# 🌌 EVENTIDE OS
 ### Precision at the Edge of the Unknown.
 
-**EVENTIDE OS** is an experimental operating system developed from scratch to explore the fundamentals of operating systems, kernel development, computer architecture, and low-level programming.
+<p align="center">
+  <strong>A Custom Operating System Built from Scratch.</strong>
+</p>
 
-The goal is to understand how computers work beneath the applications we use every day by building our own operating system, one component at a time.
+<p align="center">
+  Exploring the foundations of computing through kernel development, low-level programming, hardware interaction, and operating system architecture.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Project-EVENTIDE%20OS-6C63FF?style=for-the-badge" alt="Project"/>
+  <img src="https://img.shields.io/badge/Language-C%20%7C%20Assembly-blue?style=for-the-badge" alt="Languages"/>
+  <img src="https://img.shields.io/badge/Status-Under%20Development-orange?style=for-the-badge" alt="Status"/>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License"/>
+</p>
 
 ---
 
-##  Project Vision
+## ✦ About EVENTIDE OS
 
-Most of us use operating systems without understanding what happens behind the screen.
+**EVENTIDE OS** is an independent operating system development project focused on understanding and building the fundamental layers of a computer system from the ground up.
 
-EVENTIDE OS is an attempt to change that.
+The project aims to explore how software communicates with hardware, how a kernel manages system resources, and how the different components of an operating system work together.
 
-This project aims to build a custom, lightweight operating system with its own kernel, memory management, device drivers, command-line interface, filesystem, and eventually a graphical user interface.
+Rather than building on top of an existing operating system, EVENTIDE OS aims to develop its own core components, gradually evolving from a minimal bootable kernel into a more capable operating system.
 
-It is both a hands-on systems programming project and a journey into the fundamentals of computer science.
+This is a long-term learning and engineering project driven by curiosity, experimentation, and a passion for computer science.
 
-##  Objectives
+> We don't just want to use computers. We want to understand how they work at their core.
 
-- Build a bootable operating system from scratch.
-- Understand the boot process and kernel architecture.
-- Implement low-level hardware interaction.
-- Develop basic memory and process management.
-- Create a custom command-line shell.
+---
+
+## ✦ Vision
+
+The vision behind EVENTIDE OS is to create a functional, independently developed operating system with its own kernel, system architecture, memory management, hardware interfaces, and eventually a graphical user environment.
+
+The development will follow a modular and incremental approach, prioritizing correctness, stability, and understanding over rapid feature development.
+
+### Core Objectives
+
+- Develop a custom bootable operating system.
+- Understand low-level computer architecture.
+- Build and evolve a custom kernel.
+- Implement memory and process management.
+- Develop hardware interaction and device drivers.
+- Create a basic command-line shell.
 - Explore filesystem implementation.
-- Gradually introduce graphical capabilities.
-- Maintain an open-source development workflow.
+- Eventually introduce a graphical user interface.
 
-##  Technology Stack
+---
+
+## ✦ Development Roadmap
+
+EVENTIDE OS will be developed through multiple stages.
+
+| Phase | Development Area | Status |
+|---|---|---|
+| 01 | Project Foundation & Environment Setup | 🔄 In Progress |
+| 02 | Bootloader Integration & First Boot | ⏳ Planned |
+| 03 | Kernel Initialization | ⏳ Planned |
+| 04 | Screen Output & Keyboard Input | ⏳ Planned |
+| 05 | Interrupt Handling | ⏳ Planned |
+| 06 | Memory Management | ⏳ Planned |
+| 07 | Basic Command-Line Shell | ⏳ Planned |
+| 08 | Filesystem Development | ⏳ Planned |
+| 09 | Process & Task Management | ⏳ Planned |
+| 10 | Hardware Drivers | ⏳ Planned |
+| 11 | Graphics & Desktop Environment | ⏳ Planned |
+| 12 | Testing, Optimization & Releases | ⏳ Planned |
+
+*Roadmap statuses will be updated as development progresses.*
+
+---
+
+## ✦ Technology Stack
+
+The project will explore the following technologies and tools:
 
 | Technology | Purpose |
 |---|---|
-| C | Kernel development |
-| Assembly | Low-level hardware interaction |
-| GRUB | Bootloader |
+| C | Kernel and low-level system development |
+| Assembly | Processor-level operations and hardware interaction |
+| Git | Version control |
+| GitHub | Source code hosting and collaboration |
+| GRUB | Bootloader integration |
 | GCC Cross Compiler | Kernel compilation |
 | NASM | Assembly development |
 | QEMU | Virtual machine testing |
 | Make | Build automation |
-| Git & GitHub | Version control |
+| VS Code | Development environment |
 
-*The technology stack may evolve as development progresses.*
+*The technology stack may evolve as the architecture develops.*
 
-##  Planned Architecture
+---
+
+## ✦ Planned Architecture
+
+EVENTIDE OS is intended to follow a modular architecture.
 
 ```text
-EVENTIDE-OS/
+EVENTIDE OS
 │
-├── boot/              # Bootloader configuration
-├── kernel/            # Core kernel implementation
-├── drivers/           # Hardware drivers
-├── arch/              # Architecture-specific code
-├── memory/            # Memory management
-├── interrupts/        # Interrupt handling
-├── shell/             # Command-line interface
-├── filesystem/        # Filesystem implementation
-├── include/           # Header files
-├── scripts/           # Build and utility scripts
-├── docs/              # Technical documentation
+├── boot/
+│   └── Bootloader integration
+│
+├── kernel/
+│   ├── Kernel initialization
+│   ├── Memory management
+│   └── Interrupt handling
+│
+├── arch/
+│   └── Processor-specific code
+│
+├── drivers/
+│   └── Hardware interaction
+│
+├── shell/
+│   └── Command-line interface
+│
+├── filesystem/
+│   └── File management
+│
+├── include/
+│   └── Header files
+│
+├── scripts/
+│   └── Build and development scripts
+│
+├── docs/
+│   └── Technical documentation
 │
 ├── Makefile
-├── README.md
-└── .gitignore
+└── README.md
 ```
 
-*This is the intended project structure, not a claim that all components have been implemented.*
+*This is the planned project structure and will be updated to reflect the actual implementation.*
 
-##  Development Roadmap
+---
 
-- [ ] Phase 1 — Project foundation and development environment
-- [ ] Phase 2 — Bootloader integration and first kernel boot
-- [ ] Phase 3 — Basic kernel functionality and screen output
-- [ ] Phase 4 — Keyboard input and interrupt handling
-- [ ] Phase 5 — Memory management
-- [ ] Phase 6 — Command-line shell
-- [ ] Phase 7 — Filesystem and process management
-- [ ] Phase 8 — Graphics and desktop environment
-- [ ] Phase 9 — Testing, optimization, and release
+## ✦ Development Philosophy
 
-##  Development Philosophy
+EVENTIDE OS follows a few fundamental principles:
 
-EVENTIDE OS follows a learn-by-building approach.
+**01. Build from the Fundamentals**
 
-Every subsystem will be developed incrementally, tested independently wherever possible, and documented to explain its design and implementation.
+Understand the underlying concepts before implementing complex functionality.
 
-The focus is not simply to make an operating system boot, but to understand why and how each component works.
+**02. Modular Architecture**
 
-##  Learning Goals
+Keep system components independent, organized, and maintainable.
 
-Through this project, I aim to gain practical experience in:
+**03. Incremental Development**
 
-- Operating System Design
-- Kernel Development
-- Computer Architecture
-- Systems Programming
-- Memory Management
-- Hardware and Software Interaction
-- Low-Level Debugging
-- Open-Source Collaboration
+Implement, test, document, and improve one component at a time.
 
-##  Contributions
+**04. Engineering over Shortcuts**
 
-EVENTIDE OS is an experimental open-source learning project.
+Prioritize understanding, correctness, and reliability.
 
-Suggestions, discussions, bug reports, and contributions are welcome as the project matures.
+**05. Open Source**
 
-##  License
+Share the development journey, learn from the community, and encourage collaboration.
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+---
+
+## ✦ Getting Started
+
+EVENTIDE OS is currently under active development.
+
+The initial development environment is intended to use:
+
+- Windows as the development host.
+- Visual Studio Code as the code editor.
+- Git and GitHub for version control.
+- GCC Cross Compiler and NASM for low-level development.
+- QEMU for safe virtual machine testing.
+
+Detailed build and execution instructions will be added as the initial bootable implementation becomes available.
+
+---
+
+## ✦ Project Status
+
+**Current Stage:** Foundation and Environment Setup
+
+EVENTIDE OS is an experimental operating system development project. It is not yet intended for production use.
+
+Features listed in the roadmap represent development goals, not necessarily completed functionality.
+
+---
+
+## ✦ Contributing
+
+EVENTIDE OS is an open-source learning project.
+
+Contributions, discussions, bug reports, architectural suggestions, and educational resources are welcome.
+
+Before contributing:
+
+1. Check the existing issues.
+2. Discuss significant architectural changes before implementation.
+3. Keep changes modular and well documented.
+4. Test changes before submitting a pull request.
+
+---
+
+## ✦ License
+
+EVENTIDE OS is distributed under the **MIT License**.
+
+See the [LICENSE](LICENSE) file for details.
+
+---
+
+## ✦ A Note About the Name
+
+*Eventide* represents the transition between day and night — a boundary between two states.
+
+In a similar spirit, EVENTIDE OS represents the exploration of boundaries in computing: moving beyond simply using technology toward understanding and building it from its foundations.
 
 ---
 
 <p align="center">
-  **EVENTIDE OS**
+  <strong>EVENTIDE OS</strong>
   <br/>
-  *Exploring the universe beneath the interface.*
+  <em>Precision at the Edge of the Unknown.</em>
+  <br/><br/>
+  Built with curiosity. Engineered from the fundamentals.
 </p>
