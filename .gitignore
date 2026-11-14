@@ -1,0 +1,29 @@
+# Build output
+build/
+dist/
+*.o
+*.bin
+*.elf
+*.iso
+
+# Debug files
+*.map
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# IDE and editor
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python cache (for future build scripts)
+__pycache__/
+*.pyc
+.venv/
