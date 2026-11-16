@@ -1,231 +1,305 @@
-# 🌌 EVENTIDE OS
+# EVENTIDE OS
+
 ### Precision at the Edge of the Unknown.
 
-<p align="center">
-  <strong>A Custom Operating System Built from Scratch.</strong>
-</p>
+**EVENTIDE OS** is an experimental operating system built from scratch to explore low-level programming, computer architecture, kernel development, and operating system fundamentals.
 
-<p align="center">
-  Exploring the foundations of computing through kernel development, low-level programming, hardware interaction, and operating system architecture.
-</p>
+The project aims to develop a simple, bootable 32-bit operating system with a basic command-line interface as its first milestone: **EVENTIDE OS v1.0**.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Project-EVENTIDE%20OS-6C63FF?style=for-the-badge" alt="Project"/>
-  <img src="https://img.shields.io/badge/Language-C%20%7C%20Assembly-blue?style=for-the-badge" alt="Languages"/>
-  <img src="https://img.shields.io/badge/Status-Under%20Development-orange?style=for-the-badge" alt="Status"/>
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License"/>
-</p>
+> Built from the ground up. Designed to understand what happens beneath the software we use every day.
 
 ---
 
-## ✦ About EVENTIDE OS
+## Project Vision
 
-**EVENTIDE OS** is an independent operating system development project focused on understanding and building the fundamental layers of a computer system from the ground up.
+Most developers work with operating systems without understanding the layers that make them function.
 
-The project aims to explore how software communicates with hardware, how a kernel manages system resources, and how the different components of an operating system work together.
+EVENTIDE OS is an attempt to explore those layers by building an operating system step by step.
 
-Rather than building on top of an existing operating system, EVENTIDE OS aims to develop its own core components, gradually evolving from a minimal bootable kernel into a more capable operating system.
+The project focuses on:
 
-This is a long-term learning and engineering project driven by curiosity, experimentation, and a passion for computer science.
+- Understanding computer architecture and boot processes.
+- Developing a custom kernel using C and Assembly.
+- Working directly with hardware-level concepts.
+- Implementing basic memory and interrupt management.
+- Building a simple command-line shell.
+- Creating a bootable operating system that can run in an emulator.
 
-> We don't just want to use computers. We want to understand how they work at their core.
+## Initial Release — v1.0
 
----
+The first release will focus on a minimal but functional bootable operating system.
 
-## ✦ Vision
+### Planned Features
 
-The vision behind EVENTIDE OS is to create a functional, independently developed operating system with its own kernel, system architecture, memory management, hardware interfaces, and eventually a graphical user environment.
+- [ ] Bootable 32-bit x86 kernel.
+- [ ] GRUB bootloader integration.
+- [ ] Basic kernel initialization.
+- [ ] Screen output.
+- [ ] Keyboard input.
+- [ ] Interrupt handling.
+- [ ] Basic command-line shell.
+- [ ] Built-in shell commands.
+- [ ] Bootable ISO image.
+- [ ] QEMU testing.
 
-The development will follow a modular and incremental approach, prioritizing correctness, stability, and understanding over rapid feature development.
-
-### Core Objectives
-
-- Develop a custom bootable operating system.
-- Understand low-level computer architecture.
-- Build and evolve a custom kernel.
-- Implement memory and process management.
-- Develop hardware interaction and device drivers.
-- Create a basic command-line shell.
-- Explore filesystem implementation.
-- Eventually introduce a graphical user interface.
-
----
-
-## ✦ Development Roadmap
-
-EVENTIDE OS will be developed through multiple stages.
-
-| Phase | Development Area | Status |
-|---|---|---|
-| 01 | Project Foundation & Environment Setup | 🔄 In Progress |
-| 02 | Bootloader Integration & First Boot | ⏳ Planned |
-| 03 | Kernel Initialization | ⏳ Planned |
-| 04 | Screen Output & Keyboard Input | ⏳ Planned |
-| 05 | Interrupt Handling | ⏳ Planned |
-| 06 | Memory Management | ⏳ Planned |
-| 07 | Basic Command-Line Shell | ⏳ Planned |
-| 08 | Filesystem Development | ⏳ Planned |
-| 09 | Process & Task Management | ⏳ Planned |
-| 10 | Hardware Drivers | ⏳ Planned |
-| 11 | Graphics & Desktop Environment | ⏳ Planned |
-| 12 | Testing, Optimization & Releases | ⏳ Planned |
-
-*Roadmap statuses will be updated as development progresses.*
+Advanced features such as multitasking, networking, a complete filesystem, and a graphical interface are planned for future releases.
 
 ---
 
-## ✦ Technology Stack
+## Technology Stack
 
-The project will explore the following technologies and tools:
-
-| Technology | Purpose |
+| Component | Technology |
 |---|---|
-| C | Kernel and low-level system development |
-| Assembly | Processor-level operations and hardware interaction |
-| Git | Version control |
-| GitHub | Source code hosting and collaboration |
-| GRUB | Bootloader integration |
-| GCC Cross Compiler | Kernel compilation |
-| NASM | Assembly development |
-| QEMU | Virtual machine testing |
-| Make | Build automation |
-| VS Code | Development environment |
+| Kernel Development | C |
+| Low-level Programming | x86 Assembly |
+| Architecture | 32-bit x86 |
+| Bootloader | GRUB |
+| Boot Protocol | Multiboot |
+| Assembler | NASM |
+| Cross Compiler | i686-elf GCC |
+| Binary Utilities | GNU Binutils |
+| Build System | GNU Make |
+| Emulator | QEMU |
+| Development Environment | Ubuntu Linux |
+| Virtualization | Oracle VirtualBox |
+| Version Control | Git & GitHub |
 
-*The technology stack may evolve as the architecture develops.*
+### Why a Cross-Compiler?
+
+A normal GCC compiler targets the operating system on which it runs.
+
+EVENTIDE OS requires a compiler that generates code for our own bare-metal target rather than depending on the host Linux environment.
+
+We are therefore building a dedicated `i686-elf` cross-compiler using GNU Binutils and GCC.
 
 ---
 
-## ✦ Planned Architecture
+## System Architecture
 
-EVENTIDE OS is intended to follow a modular architecture.
+The initial boot sequence is:
 
 ```text
-EVENTIDE OS
+Computer Firmware
+       |
+       v
+    GRUB
+       |
+       v
+ EVENTIDE Kernel
+       |
+       v
+ Kernel Initialization
+       |
+       v
+ Basic Hardware Setup
+       |
+       v
+  Command-Line Shell
+       |
+       v
+  User Commands
+```
+
+### Project Structure
+
+```text
+EVENTIDE-OS/
 │
 ├── boot/
-│   └── Bootloader integration
+│   └── Bootloader configuration
 │
 ├── kernel/
-│   ├── Kernel initialization
-│   ├── Memory management
-│   └── Interrupt handling
+│   └── Kernel implementation
 │
 ├── arch/
-│   └── Processor-specific code
+│   └── x86/
+│       └── Architecture-specific code
 │
 ├── drivers/
-│   └── Hardware interaction
+│   └── Hardware drivers
+│
+├── include/
+│   └── Shared header files
 │
 ├── shell/
 │   └── Command-line interface
 │
+├── memory/
+│   └── Memory management
+│
 ├── filesystem/
-│   └── File management
-│
-├── include/
-│   └── Header files
-│
-├── scripts/
-│   └── Build and development scripts
+│   └── Filesystem implementation
 │
 ├── docs/
-│   └── Technical documentation
+│   ├── ARCHITECTURE.md
+│   └── ROADMAP.md
 │
-├── Makefile
+├── scripts/
+│   └── Build and utility scripts
+│
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
-*This is the planned project structure and will be updated to reflect the actual implementation.*
+---
+
+## Development Environment
+
+EVENTIDE OS is currently being developed using Ubuntu Linux inside Oracle VirtualBox on a Windows host.
+
+### Required Tools
+
+- Ubuntu Linux
+- GCC and GNU Make
+- NASM
+- GNU Binutils
+- GRUB utilities
+- Xorriso
+- Mtools
+- QEMU
+- i686-elf cross-compiler
+
+### Ubuntu Dependencies
+
+Install the basic development tools:
+
+```bash
+sudo apt update
+
+sudo apt install -y \
+  build-essential \
+  nasm \
+  grub-pc-bin \
+  grub-common \
+  xorriso \
+  mtools \
+  qemu-system-x86 \
+  bison \
+  flex \
+  libgmp3-dev \
+  libmpc-dev \
+  libmpfr-dev \
+  texinfo \
+  wget \
+  tar \
+  xz-utils \
+  python3
+```
+
+### Cross-Compiler Configuration
+
+The planned cross-compiler target and installation prefix are:
+
+```bash
+export PREFIX="$HOME/opt/cross"
+export TARGET=i686-elf
+export PATH="$PREFIX/bin:$PATH"
+```
+
+These variables configure the development environment for the custom compiler toolchain.
+
+The Binutils and GCC build process is currently in progress.
 
 ---
 
-## ✦ Development Philosophy
+## Development Roadmap
 
-EVENTIDE OS follows a few fundamental principles:
+The initial development target is a 14-day bootable OS project.
 
-**01. Build from the Fundamentals**
+| Phase | Development Milestone |
+|---|---|
+| Day 1 | Repository, architecture and documentation |
+| Day 2 | Development environment and cross-compiler |
+| Day 3 | Bootloader configuration |
+| Day 4 | Initial kernel implementation |
+| Day 5 | Screen output |
+| Day 6 | Keyboard input |
+| Day 7 | Interrupt handling |
+| Day 8 | Basic shell |
+| Day 9 | Shell commands |
+| Day 10 | Basic memory management |
+| Day 11 | System utilities |
+| Day 12 | Integration and debugging |
+| Day 13 | Bootable ISO and testing |
+| Day 14 | Documentation and v1.0 release |
 
-Understand the underlying concepts before implementing complex functionality.
-
-**02. Modular Architecture**
-
-Keep system components independent, organized, and maintainable.
-
-**03. Incremental Development**
-
-Implement, test, document, and improve one component at a time.
-
-**04. Engineering over Shortcuts**
-
-Prioritize understanding, correctness, and reliability.
-
-**05. Open Source**
-
-Share the development journey, learn from the community, and encourage collaboration.
-
----
-
-## ✦ Getting Started
-
-EVENTIDE OS is currently under active development.
-
-The initial development environment is intended to use:
-
-- Windows as the development host.
-- Visual Studio Code as the code editor.
-- Git and GitHub for version control.
-- GCC Cross Compiler and NASM for low-level development.
-- QEMU for safe virtual machine testing.
-
-Detailed build and execution instructions will be added as the initial bootable implementation becomes available.
+For detailed progress, see [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ---
 
-## ✦ Project Status
+## Current Development Status
 
-**Current Stage:** Foundation and Environment Setup
+**Status: Early Development**
 
-EVENTIDE OS is an experimental operating system development project. It is not yet intended for production use.
+Completed:
 
-Features listed in the roadmap represent development goals, not necessarily completed functionality.
+- [x] GitHub repository created.
+- [x] Local development environment connected to GitHub.
+- [x] Initial project directory structure created.
+- [x] `.gitignore` configured.
+- [x] System architecture documented.
+- [x] Development roadmap documented.
+- [x] Ubuntu environment prepared in VirtualBox.
+- [x] GCC and GNU Make installed.
+- [x] NASM, GRUB, QEMU and supporting tools installed.
+- [x] Cross-compiler workspace configured.
+- [x] GNU Binutils source downloaded and extracted.
 
----
+In Progress:
 
-## ✦ Contributing
+- [ ] GNU Binutils configuration and compilation.
+- [ ] i686-elf GCC cross-compiler.
+- [ ] Initial kernel implementation.
 
-EVENTIDE OS is an open-source learning project.
-
-Contributions, discussions, bug reports, architectural suggestions, and educational resources are welcome.
-
-Before contributing:
-
-1. Check the existing issues.
-2. Discuss significant architectural changes before implementation.
-3. Keep changes modular and well documented.
-4. Test changes before submitting a pull request.
-
----
-
-## ✦ License
-
-EVENTIDE OS is distributed under the **MIT License**.
-
-See the [LICENSE](LICENSE) file for details.
+No bootable kernel or ISO has been released yet.
 
 ---
 
-## ✦ A Note About the Name
+## Development Philosophy
 
-*Eventide* represents the transition between day and night — a boundary between two states.
+EVENTIDE OS follows a few core principles:
 
-In a similar spirit, EVENTIDE OS represents the exploration of boundaries in computing: moving beyond simply using technology toward understanding and building it from its foundations.
+1. **Understand Before Implementing** — Learn the underlying concepts while writing the code.
+2. **Build Incrementally** — Develop and test one component at a time.
+3. **Keep It Simple** — Prioritize a working minimal OS before advanced features.
+4. **Document Everything** — Maintain clear technical documentation.
+5. **Consistency Matters** — Maintain meaningful Git commits and track development progress.
 
 ---
 
-<p align="center">
-  <strong>EVENTIDE OS</strong>
-  <br/>
-  <em>Precision at the Edge of the Unknown.</em>
-  <br/><br/>
-  Built with curiosity. Engineered from the fundamentals.
-</p>
+## Future Possibilities
+
+Beyond v1.0, EVENTIDE OS may explore:
+
+- Improved memory management.
+- Process management and multitasking.
+- Filesystem support.
+- Additional hardware drivers.
+- Networking capabilities.
+- System calls and user-mode programs.
+- Graphical user interface.
+
+These are long-term goals, not features currently implemented.
+
+---
+
+## Contributing
+
+EVENTIDE OS is currently an individual learning and development project.
+
+Suggestions, discussions, and technical feedback are welcome.
+
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Project Information
+
+**Project:** EVENTIDE OS  
+**Developer:** Purushottam Pelapkar  
+**Repository:** [github.com/purushottam08-nova/EVENTIDE-OS](https://github.com/purushottam08-nova/EVENTIDE-OS)
+
+**Precision at the Edge of the Unknown.**
